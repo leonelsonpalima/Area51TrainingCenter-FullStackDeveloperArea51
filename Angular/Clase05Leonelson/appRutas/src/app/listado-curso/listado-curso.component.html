@@ -1,0 +1,23 @@
+
+<button type="button" class="btn btn-success" (click)="nuevo()">Nuevo</button>
+<table class="table table-stripped table-hover" *ngIf="listaCursos && listaCursos.length; else NoHayDatos">
+  <thead>
+    <tr>
+      <th>Titulo</th>
+      <th>Estado</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let curso of listaCursos; let indice = index">
+      <td>{{curso.titulo}}</td>
+      <td>{{curso.estado}}</td>
+      <td>
+        <button class="btn btn-warning" (click)="editar(indice)">Editar</button>
+        &nbsp;
+        <button class="btn btn-danger" (click)="eliminar(indice)">Eliminar</button></td>
+    </tr>
+  </tbody>
+</table>
+<ng-template #NoHayDatos><div>No hay datos</div></ng-template>
+

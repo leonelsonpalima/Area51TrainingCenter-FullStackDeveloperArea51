@@ -23,7 +23,7 @@ const rutas: Route[] = [
       { path: "nuevo", component: NuevoCursoComponent },
       { path: "edicion/:id", component: EdicionCursoComponent },
     ]
-  }
+  },
   /*
   { path: "cursos", component: ListadoCursoComponent },
   { path: "cursos/nuevo", component: NuevoCursoComponent },

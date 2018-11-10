@@ -10,6 +10,11 @@ export class AppComponent {
   @ViewChild("f") formulario: NgForm
 
   grabar(){
+    if(this.formulario.valid){
+
+    }else{
+      alert("El formulario no es válido")
+    }
     console.log(this.formulario)
   }
 }

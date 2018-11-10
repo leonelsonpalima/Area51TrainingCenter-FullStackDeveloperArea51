@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { ICurso } from '../modelos/curso.interface';
-import { Observable, Observer } from 'rxjs';
+import { Observable, Observer, of } from 'rxjs';
+import { delay } from 'rxjs/operators';
 
 @Injectable({
 	providedIn: 'root'
@@ -61,8 +62,22 @@ export class CursoService {
 				setTimeout(() => {
 					const item = Object.assign({}, this.data[indice])
 					observador.next(item)
-				}, 500)
+				}, 10000)
 			}
 		)
+	}
+
+	listarPersonas(): Observable<Array<string>> {
+		return of(["Sergio", "Pedro", "Juana"])
+			.pipe(
+				delay(2000)
+			)
+	}
+
+	listarFechas(): Observable<Array<string>> {
+		return of(["ene-18", "feb-18", "mar-18"])
+			.pipe(
+				delay(13000)
+			)
 	}
 }

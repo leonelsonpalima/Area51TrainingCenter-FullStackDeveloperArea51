@@ -14,6 +14,8 @@ import { EdicionAlumnoComponent } from './edicion-alumno/edicion-alumno.componen
 import { NuevoAlumnoComponent } from './nuevo-alumno/nuevo-alumno.component';
 import { AutenticacionGuard } from './guards/autenticacion.guard';
 import { AutorizacionGuard } from './guards/autorizacion.guard';
+import { DataSalvadaGuard } from './guards/data-salvada.guard';
+import { CursoResolve } from './guards/curso.resolve';
 
 
 const rutas: Route[] = [
@@ -22,7 +24,13 @@ const rutas: Route[] = [
 	{
 		path: "cursos", canActivateChild: [AutenticacionGuard], component: ListadoCursoComponent, children: [
 			{ path: "nuevo", component: NuevoCursoComponent },
-			{ path: "edicion/:id", component: EdicionCursoComponent, canActivate: [AutorizacionGuard] }
+			{
+				path: "edicion/:id",
+				component: EdicionCursoComponent, canActivate: [AutorizacionGuard], canDeactivate: [DataSalvadaGuard],
+				resolve: {
+					dataCurso: CursoResolve
+				}
+			}
 		]
 	},
 

@@ -1,5 +1,6 @@
 # Area51TrainingCenter-FullStackDeveloperArea51
-Diapositivas
+* Diapositivas
 https://slides.com/shidalgo
-Repositorio original
+
+* Repositorio original
 https://github.com/Area51TrainingCenter/FullStackDeveloper-Group08

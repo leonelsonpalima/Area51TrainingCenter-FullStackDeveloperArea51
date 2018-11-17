@@ -1,3 +1,7 @@
 <div simple>texto de prueba</div>
 <hr>
 <div appHover colorOriginal="white" colorHover="lime">texto para hoverDirective</div>
+<hr>
+<select [appDistritos]="['Lima', 'Magdalena', 'Pueblo Libre']"></select>
+<hr>
+<article appArchivo [ngClass]="{intermitente: aplicarClase}" (onSeleccion)="seleccion($event)" (onOver)="aplicarClase=true" (onLeave)="aplicarClase=false"></article>

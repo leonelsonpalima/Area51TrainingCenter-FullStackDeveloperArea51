@@ -4,11 +4,11 @@ import { ListadoAlumnosComponent } from './listado-alumnos/listado-alumnos.compo
 import { AlumnosRoutingModule } from './alumnos-routing.module';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    AlumnosRoutingModule
-  ],
-  declarations: [ListadoAlumnosComponent],
-  exports: [AlumnosRoutingModule]
+	imports: [
+		CommonModule,
+		AlumnosRoutingModule
+	],
+	declarations: [ListadoAlumnosComponent],
+	exports: [AlumnosRoutingModule]
 })
 export class AlumnosModule { }

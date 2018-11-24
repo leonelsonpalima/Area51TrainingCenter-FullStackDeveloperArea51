@@ -1,17 +1,18 @@
 import { NgModule } from "@angular/core";
-import { RouterModule, Route} from '@angular/router';
-import { ListadoCursosComponent } from './listado-cursos/listado-cursos.component';
+import { RouterModule, Route } from "@angular/router"
+import { ListadoCursosComponent } from "./listado-cursos/listado-cursos.component";
+
 
 const rutas: Route[] = [
-    {path: "cursos", component: ListadoCursosComponent}
+	{ path: "", component: ListadoCursosComponent }
 ]
 
 @NgModule({
-    declarations: [
-    ],
-    imports: [
-        RouterModule.forRoot(rutas)
-    ],
-    exports: [RouterModule]
+	declarations: [
+	],
+	imports: [
+		RouterModule.forChild(rutas)
+	],
+	exports: [RouterModule]
 })
-export class CursosRoutingModule {}
+export class CursosRoutingModule { }

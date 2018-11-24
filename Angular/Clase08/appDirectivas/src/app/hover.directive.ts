@@ -1,29 +1,29 @@
 import { Directive, ElementRef, HostListener, Input, HostBinding } from '@angular/core';
 
 @Directive({
-  selector: '[appHover]'
+	selector: '[appHover]'
 })
 export class HoverDirective {
-  @Input() colorOriginal: string = "lime"
-  @Input() colorHover: string = "purple"
+	@Input("appHover") colorOriginal: string = "lime"
+	@Input() colorHover: string = "yellow"
 
-  @HostBinding("style.backgroundColor") color: string
+	@HostBinding("style.backgroundColor") color: string
 
-  constructor(private elementRef: ElementRef) { }
+	constructor(private elementRef: ElementRef) { }
 
-  ngOnInit(){
-    this.saleMouse()
-    //this.elementRef.nativeElement.style.backgroundColor = this.colorOriginal
-  }
+	ngOnInit() {
+		this.saleMouse()
+		//this.elementRef.nativeElement.style.backgroundColor = this.colorOriginal
+	}
 
-  @HostListener("mouseenter") entraMouse(){
-    this.color = this.colorHover
-    //this.elementRef.nativeElement.style.backgroundColor = this.colorHover
-  }
+	@HostListener("mouseenter") entraMouse() {
+		this.color = this.colorHover
+		//this.elementRef.nativeElement.style.backgroundColor = this.colorHover
+	}
 
-  @HostListener("mouseleave") saleMouse(){
-    this.color = this.colorOriginal
-    //this.elementRef.nativeElement.style.backgroundColor = this.colorOriginal
-  }
+	@HostListener("mouseleave") saleMouse() {
+		this.color = this.colorOriginal
+		//this.elementRef.nativeElement.style.backgroundColor = this.colorOriginal
+	}
 
 }

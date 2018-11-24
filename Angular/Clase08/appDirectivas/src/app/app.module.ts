@@ -8,13 +8,17 @@ import { DistritosDirective } from './distritos.directive';
 import { ArchivoDirective } from './archivo.directive';
 
 @NgModule({
-  declarations: [
-    AppComponent, SimpleDirective, HoverDirective, DistritosDirective, ArchivoDirective
-  ],
-  imports: [
-    BrowserModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+	declarations: [
+		AppComponent,
+		SimpleDirective,
+		HoverDirective,
+		DistritosDirective,
+		ArchivoDirective
+	],
+	imports: [
+		BrowserModule
+	],
+	providers: [],
+	bootstrap: [AppComponent]
 })
 export class AppModule { }

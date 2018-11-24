@@ -24,5 +24,7 @@ export class CursosService {
 
 	actualizar(curso: ICurso) { }
 
-	eliminar(idCurso: number) { }
+	eliminar(idCurso: number): Observable<ICurso> {
+    return this.http.delete<ICurso>(`${environment.apiRest}/cursos/${idCurso}`)
+  }
 }

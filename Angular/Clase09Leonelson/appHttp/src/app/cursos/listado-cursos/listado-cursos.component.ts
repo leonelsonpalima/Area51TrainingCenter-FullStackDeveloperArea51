@@ -14,10 +14,25 @@ export class ListadoCursosComponent implements OnInit {
 	constructor(private cursosService: CursosService) { }
 
 	ngOnInit() {
-		this.cursosService.listar()
+		this.listar()
+  }
+
+  eliminar (idCurso: number){
+    if(confirm("¿Esta seguro?")){
+      this.cursosService.eliminar(idCurso)
+        .subscribe(
+          () => {
+            this.listar()
+          }
+        )
+    }
+  }
+
+  listar(){
+    this.cursosService.listar()
 			.subscribe(
 				(lista: ICurso[]) => this.cursos = lista
 			)
-	}
+  }
 
 }

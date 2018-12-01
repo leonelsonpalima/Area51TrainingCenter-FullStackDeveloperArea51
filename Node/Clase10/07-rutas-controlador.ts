@@ -1,45 +1,27 @@
 import http = require("http")
 import url = require("url")
 
+import { manejador as manejadorUsuarios } from "./controladores/controlador"
+
 const rutas = [
 	{
-		path: "usuarios", controlador: "listado",
+		path: "usuarios", controlador: "listado", method: "get"
 	},
 	{
-		path: "usuarios/edicion", controlador: "edicion"
+		path: "usuarios/edicion", controlador: "edicion", method: "get"
+	},
+	{
+		path: "usuarios/edicion", controlador: "actualizar", method: "post"
 	}
 ]
 
-const manejador = {
-	listado: (req: http.IncomingMessage, res: http.ServerResponse) => {
-		res.statusCode = 200
-		res.setHeader("content-type", "application/json")
-		res.end(JSON.stringify([
-			{ nombre: "Amelia" },
-			{ nombre: "Jana" }
-		]))
-	},
-	edicion: (req: http.IncomingMessage, res: http.ServerResponse) => {
-		res.statusCode = 200
-		res.setHeader("content-type", "text/html")
-		res.end(
-			`
-			<form action="/usuarios/editar">
-			<input type="text" name="nombre" placeholder="Ingrese su nombre">
-			<br>
-			<input type="text" name="apellido" placeholder="Ingrese su apellido">
-			<br>
-			<button>Editar</button>
-			</form>
-			`
-		)
-	}
-}
+
 
 
 const servidor = http.createServer((req: http.IncomingMessage, res: http.ServerResponse) => {
 	const parseado = url.parse(req.url, true)
 	const ruta = parseado.pathname.replace(/^\/+|\/+$/g, "")
+	const methodo = req.method.toLowerCase()
 
 	let rutaEncontrada
 
@@ -51,7 +33,7 @@ const servidor = http.createServer((req: http.IncomingMessage, res: http.ServerR
 	}
 
 	if (rutaEncontrada) {
-		return manejador[rutaEncontrada.controlador](req, res)
+		return manejadorUsuarios[rutaEncontrada.controlador](req, res)
 	}
 
 	res.statusCode = 404
